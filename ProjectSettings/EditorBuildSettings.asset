@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/test3camroom.unity
     guid: e7f6a4f71984b49ebaf0370e2834a655
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CamRoomNewest.unity
     guid: 0b4e695be3ad14307bb09afc1c648a4a
   m_configObjects:
