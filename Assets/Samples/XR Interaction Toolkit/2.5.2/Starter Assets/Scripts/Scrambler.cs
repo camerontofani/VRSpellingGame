@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScramblerTest : MonoBehaviour
+public class Scrambler : MonoBehaviour
 {
     public List<Transform> letterBlocks;
 
