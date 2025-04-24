@@ -2762,6 +2762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541956656}
   - component: {fileID: 541956657}
+  - component: {fileID: 541956658}
   m_Layer: 0
   m_Name: ACHIEVE
   m_TagString: Untagged
@@ -2798,7 +2799,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541956655}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9a1342a7121f4354a9db632294b3e7b, type: 3}
   m_Name: 
@@ -2811,6 +2812,28 @@ MonoBehaviour:
   - {fileID: 2045372998}
   - {fileID: 762495033}
   - {fileID: 1995920895}
+--- !u!114 &541956658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541956655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f16e990a624f4eed93bdf957e949011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  letterBlocks:
+  - {fileID: 1848944902}
+  - {fileID: 1789587430}
+  - {fileID: 234471279}
+  - {fileID: 2045372998}
+  - {fileID: 588207220}
+  - {fileID: 762495033}
+  - {fileID: 1995920895}
+  forwardShift: -3
+  delayBeforeDrop: 1
 --- !u!1001 &580671921
 PrefabInstance:
   m_ObjectHideFlags: 0
