@@ -3214,6 +3214,7 @@ GameObject:
   - component: {fileID: 541956657}
   - component: {fileID: 541956658}
   - component: {fileID: 541956659}
+  - component: {fileID: 541956660}
   m_Layer: 0
   m_Name: ACHIEVE
   m_TagString: Untagged
@@ -3389,6 +3390,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &541956660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541956655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87038faba6b79541957bc0c6185c4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapZones:
+  - {fileID: 550238350}
+  - {fileID: 700290652}
+  - {fileID: 1682632501}
+  - {fileID: 827980685}
+  - {fileID: 1124595888}
+  - {fileID: 1405341476}
+  - {fileID: 1444965579}
 --- !u!1 &550238346
 GameObject:
   m_ObjectHideFlags: 0
@@ -11030,15 +11051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befc8ac187afb438eb4e7d90ef220bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapZones:
-  - {fileID: 550238350}
-  - {fileID: 700290652}
-  - {fileID: 1682632501}
-  - {fileID: 827980685}
-  - {fileID: 1124595888}
-  - {fileID: 1405341476}
-  - {fileID: 1444965579}
-  correctWord: ACHIEVE
 --- !u!4 &1261903796
 Transform:
   m_ObjectHideFlags: 0
