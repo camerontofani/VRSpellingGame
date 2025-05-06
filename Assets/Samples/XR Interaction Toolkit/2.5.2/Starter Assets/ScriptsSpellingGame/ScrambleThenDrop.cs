@@ -5,17 +5,47 @@ using UnityEngine;
 public class ScrambleThenDrop : MonoBehaviour
 {
     public List<Transform> letterBlocks;
-    public float forwardShift = -1f;      // Small push forward toward table
-    public float delayBeforeDrop = 1f;    // How long to wait before dropping
+    public float forwardShift = -1f;
+    public float delayBeforeDrop = 1f;
+
+    private List<Vector3> initialPositions = new List<Vector3>();
 
     void Start()
+    {
+        foreach (Transform letter in letterBlocks)
+        {
+            initialPositions.Add(letter.localPosition);
+        }
+
+        StartDropSequence();
+    }
+
+    public void StartDropSequence()
     {
         StartCoroutine(ScrambleAndDrop());
     }
 
+    public void ResetLetters()
+    {
+        for (int i = 0; i < letterBlocks.Count; i++)
+        {
+            Transform letter = letterBlocks[i];
+            letter.localPosition = initialPositions[i];
+
+            Rigidbody rb = letter.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                rb.isKinematic = true;
+                rb.useGravity = false;
+            }
+        }
+    }
+
     IEnumerator ScrambleAndDrop()
     {
-        // Step 1: Scramble the Z positions
+        // Scramble Z positions
         List<float> zPositions = new List<float>();
         foreach (Transform letter in letterBlocks)
         {
@@ -37,19 +67,19 @@ public class ScrambleThenDrop : MonoBehaviour
             letterBlocks[i].localPosition = pos;
         }
 
-        // Step 2: Wait a second
+        // Wait a bit
         yield return new WaitForSeconds(0.5f);
 
-        // Step 3: Smoothly move all blocks forward
+        // Move forward
         for (int i = 0; i < letterBlocks.Count; i++)
         {
-            StartCoroutine(SmoothMove(letterBlocks[i], forwardShift, 0.5f)); // 0.5 seconds
+            StartCoroutine(SmoothMove(letterBlocks[i], forwardShift, 0.5f));
         }
 
-        // Step 4: Wait a bit more
+        // Wait more
         yield return new WaitForSeconds(delayBeforeDrop);
 
-        // Step 5: Drop the blocks (turn gravity back on)
+        // Drop
         foreach (var letter in letterBlocks)
         {
             Rigidbody rb = letter.GetComponent<Rigidbody>();
@@ -73,6 +103,7 @@ public class ScrambleThenDrop : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        block.position = endPos; // snap to final position
+
+        block.position = endPos;
     }
 }
