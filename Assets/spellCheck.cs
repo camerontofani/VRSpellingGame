@@ -1,22 +1,28 @@
 using UnityEngine;
+using TMPro;
 
 public class SpellChecker : MonoBehaviour
 {
-    public SnapZoneTracker[] snapZones; // Assign in Inspector, left to right
-    private readonly string targetWord = "ACHIEVE";
+    public SnapZoneTracker[] snapZones; // Assign in Inspector
+    public string targetWord = "ACHIEVE"; // Editable per object
 
     public void CheckSpelling()
     {
+        if (!gameObject.activeInHierarchy)
+            return; // Don't run if this object is inactive
+
         string userWord = "";
 
         foreach (SnapZoneTracker zone in snapZones)
         {
-            userWord += zone.currentLetter.ToUpper(); // Ensures consistency
+            userWord += zone.currentLetter.ToUpper();
         }
 
-        if (userWord == targetWord)
+        Debug.Log("User spelled: " + userWord + " (expected: " + targetWord + ")");
+
+        if (userWord == targetWord.ToUpper())
         {
-            Debug.Log("Correct! You spelled ACHIEVE.");
+            Debug.Log("Correct! You spelled " + targetWord + ".");
         }
         else
         {
@@ -24,5 +30,7 @@ public class SpellChecker : MonoBehaviour
         }
     }
 }
+
+
 
 
