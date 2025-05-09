@@ -36,10 +36,25 @@ public class WordController : MonoBehaviour
         // Show and drop
         GameObject newWord = wordObjects[currentWordIndex];
         newWord.SetActive(true);
+
+        // adding audio 
+        AudioSource audio = newWord.GetComponent<AudioSource>();
+        if (audio != null)
+        {
+        audio.Play();
+        }
+
         ScrambleThenDrop newStd = newWord.GetComponent<ScrambleThenDrop>();
         if (newStd != null)
         {
-            newStd.StartDropSequence();
+            float delay = 0f;
+            AudioSource clipSource = newWord.GetComponent<AudioSource>();
+            if (audio != null && audio.clip != null)
+            {
+                delay = clipSource.clip.length; // get length of audio
+            }
+
+            newStd.StartDropSequenceAfterDelay(delay);
         }
     }
 }

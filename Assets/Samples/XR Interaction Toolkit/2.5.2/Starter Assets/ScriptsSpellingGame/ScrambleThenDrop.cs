@@ -17,8 +17,19 @@ public class ScrambleThenDrop : MonoBehaviour
             initialPositions.Add(letter.localPosition);
         }
 
-        StartDropSequence();
+        //StartDropSequence();
     }
+
+    public void StartDropSequenceAfterDelay(float delay)
+    {
+    StartCoroutine(DelayedStart(delay));
+    }
+
+private IEnumerator DelayedStart(float delay)
+{
+    yield return new WaitForSeconds(delay);
+    StartDropSequence();  // same method you already use
+}
 
     public void StartDropSequence()
     {
